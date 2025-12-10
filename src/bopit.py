@@ -84,10 +84,18 @@ def displayText(line1="", line2="", line3="", line4=""):
 # ============================================================
 
 def get_difficulty():
-    displayText("Select Difficulty", "Easy / Normal / Hard")
+    displayText("Select Difficulty", "Rotate + Press")
+
+    last_pos = encoder.position
+
     while True:
-        if encoder.update():
-            pos = encoder.position % 3
+        encoder.update()  # always call update
+
+        pos = encoder.position % 3
+
+        if pos != last_pos:
+            last_pos = pos
+
             if pos == 0:
                 displayText("Difficulty:", "EASY")
             elif pos == 1:
@@ -95,10 +103,13 @@ def get_difficulty():
             else:
                 displayText("Difficulty:", "HARD")
 
+        # Button press confirms selection
         if not btn.value:
-            time.sleep(0.3)
+            time.sleep(0.3)  # debounce
             return pos + 1
+
         time.sleep(0.01)
+
 
 # ============================================================
 # ----------- IMPROVED DIRECTION DETECTION -------------------
