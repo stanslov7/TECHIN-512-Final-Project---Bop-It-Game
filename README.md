@@ -143,14 +143,14 @@ All functionality is contained in **a single file** bopit.py for easy deployment
 
 ## Required Libraries
 
-Ensure the following libraries are present in the `/lib` folder:
+The following libraries are used and present for reference in the `/lib` folder:
 
-- `adafruit_adxl34x`
-- `adafruit_displayio_ssd1306`
+- `adafruit_adxl34x.mpy`
+- `adafruit_displayio_ssd1306.mpy`
 - `adafruit_display_text`
-- `neopixel`
-- `rotary_encoder`
-- `terminalio`
+- `adafruit_bus_device`
+- `neopixel.mpy`
+- `rotary_encoder.py`
 
 ---
 
